@@ -3,8 +3,8 @@ Projeto Martin
 =======
 Projeto pessoal de realização de uma estrutura com ferramentas de automatização de Testes
 
-<a href="peterson.cardoso@me.com">Contato</a>
 
+<a href="mailto:peterson.cardoso@me.com">Contato</a>
 
 ---------
 Dependencias
@@ -31,4 +31,4 @@ O REST Assured traz a simplicidade de usar essas linguagens para o domínio Java
  >Biblioteca Java que pode ser usada para converter objetos Java em sua representação JSON. Ele também pode ser usado para converter uma sequência JSON em um objeto Java equivalente. O Gson pode trabalhar com objetos Java arbitrários,
   incluindo objetos pré-existentes dos quais você não possui código-fonte.
   
-  <https://github.com/google/gson>
+ <https://github.com/google/gson>
