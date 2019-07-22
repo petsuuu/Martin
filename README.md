@@ -37,3 +37,6 @@ O REST Assured traz a simplicidade de usar essas linguagens para o domínio Java
   >Esta biblioteca é uma porta da gem faker do Ruby que gera dados falsos. É útil quando você está desenvolvendo um novo projeto e precisa de alguns dados bonitos para o mostruário.
    
   <https://github.com/DiUS/java-faker>
+  
+   
+ 
