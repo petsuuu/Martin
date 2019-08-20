@@ -38,4 +38,9 @@ O REST Assured traz a simplicidade de usar essas linguagens para o domínio Java
    
   <https://github.com/DiUS/java-faker>
   
+  
+  ##### Selenium WebDrive
+   >O Selenium automatiza os navegadores . É isso aí! O que você faz com esse poder depende inteiramente de você. Primeiramente, é para automatizar aplicativos da web para fins de teste, mas certamente não se limita apenas a isso. Tarefas de administração baseadas na Web e chatas podem (e devem!) Ser automatizadas também.
+      
+   <www.seleniumhq.org>
    
