@@ -7,6 +7,18 @@ Projeto pessoal de realização de uma estrutura com ferramentas de automatizaç
 <a href="mailto:peterson.cardoso@me.com">Contato</a>
 
 ---------
+Linguagens
+====
+##### Java
+>é uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems. Em 2008 o Java foi adquirido pela empresa Oracle Corporation.
+
+<a href="https://github.com/petsuuu/Martin/tree/master/src/main/java/br/com/peterson/martin/primeirospassos">Primeiros Passos</a>
+
+<a href="https://github.com/petsuuu/Martin/tree/master/src/main/java/br/com/peterson/martin/orientacaoaobjetos/bytebank">Orientações a Objetos</a>
+
+<a href="https://github.com/petsuuu/Martin/tree/master/src/main/java/br/com/peterson/martin/herancaeinterface">Herança e Interface</a>
+
+---------
 Dependencias
 ====
 
