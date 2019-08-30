@@ -19,7 +19,7 @@ Linguagens
 <a href="https://github.com/petsuuu/Martin/tree/master/src/main/java/br/com/peterson/martin/herancaeinterface">Herança e Interface</a>
 
 ---------
-Dependencias
+Dependências
 ====
 
 ##### Cucumber 
