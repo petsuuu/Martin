@@ -1,9 +1,6 @@
 package br.com.peterson.martin.herancaeinterface.bytebankherdado.main;
 
-import br.com.peterson.martin.herancaeinterface.bytebankherdado.ControleBonificacao;
-import br.com.peterson.martin.herancaeinterface.bytebankherdado.Designer;
-import br.com.peterson.martin.herancaeinterface.bytebankherdado.EditorVideo;
-import br.com.peterson.martin.herancaeinterface.bytebankherdado.Gerente;
+import br.com.peterson.martin.herancaeinterface.bytebankherdado.*;
 
 public class TesteReferencias {
 

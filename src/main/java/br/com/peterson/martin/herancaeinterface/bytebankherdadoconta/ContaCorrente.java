@@ -3,7 +3,9 @@ package br.com.peterson.martin.herancaeinterface.bytebankherdadoconta;
 //new ContaCorrente()
 public class ContaCorrente extends Conta {
 
-	public ContaCorrente(int agencia, int numero) {
+	public ContaCorrente(int agencia, int numero)
+
+	{
 		super(agencia, numero);
 	}
 	
