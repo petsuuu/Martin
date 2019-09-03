@@ -1,10 +1,14 @@
 package br.com.peterson.martin.herancaeinterface.bytebankherdado.main;
 
+import br.com.peterson.martin.herancaeinterface.bytebankherdado.Autenticavel;
+import br.com.peterson.martin.herancaeinterface.bytebankherdado.Cliente;
 import br.com.peterson.martin.herancaeinterface.bytebankherdado.Gerente;
 
 public class TesteGerente {
 
     public static void main(String[] args) {
+
+        Autenticavel referencia = new Cliente();
 
         Gerente g1 = new Gerente();
         g1.setNome("Marco");

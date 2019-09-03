@@ -3,6 +3,7 @@ package br.com.peterson.martin.herancaeinterface.bytebankherdado;
 //não pode instanciar dessa classe porque é abstract
 public abstract class Funcionario {
 
+
 	private String nome;
 	private String cpf;
 	private double salario;
