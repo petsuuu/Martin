@@ -2,7 +2,14 @@ package br.com.peterson.martin.herancaeinterface.bytebankherdado;
 
 public class Administrador extends Funcionario implements Autenticavel{
 
-      @Override
+    private AutenticacaoUtil autenticador;
+
+    public Administrador() {
+        this.autenticador = new AutenticacaoUtil();
+
+    }
+
+    @Override
     public double getBonificacao() {
         return 50;
     }
