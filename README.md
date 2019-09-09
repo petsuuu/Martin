@@ -18,7 +18,9 @@ Linguagens
 
 <a href="https://github.com/petsuuu/Martin/tree/master/src/main/java/br/com/peterson/martin/herancaeinterface">Herança e Interface</a>
 
----------
+<a href="https://github.com/petsuuu/Martin/tree/master/src/main/java/br/com/peterson/martin/excecoes">Exceções
+
+
 Dependências
 ====
 
