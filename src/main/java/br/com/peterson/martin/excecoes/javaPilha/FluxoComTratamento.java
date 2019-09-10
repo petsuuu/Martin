@@ -1,14 +1,14 @@
 package br.com.peterson.martin.excecoes.javaPilha;
 
-public class Fluxo {
+public class FluxoComTratamento {
 
     public static void main(String[] args) {
         System.out.println("Ini do main");
         try {
             metodo1();
-        } catch (ArithmeticException | NullPointerException | MinhaExcecao ex) {
+        } catch (ArithmeticException | NullPointerException ex) {
             String msg = ex.getMessage();
-            System.out.println("Exception " + msg);
+            System.out.println("ArithmeticException " + msg);
             ex.printStackTrace();
         }
         System.out.println("Fim do main");
@@ -22,10 +22,9 @@ public class Fluxo {
     }
 
     private static void metodo2() {
-        System.out.println("ini do metodo2");
-        metodo2();
-        System.out.println("fim do metodo2");
+        System.out.println("Ini do metodo2");
+
+        System.out.println("Fim do metodo2");
     }
+
 }
-
-
