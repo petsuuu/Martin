@@ -1,4 +1,7 @@
-package br.com.peterson.martin.excecoes.javaPilha;
+package br.com.peterson.martin.excecoes.javaPilha.main;
+
+import br.com.peterson.martin.excecoes.javaPilha.Conta;
+import br.com.peterson.martin.excecoes.javaPilha.MinhaExcecao;
 
 public class TestaContaComExcecaoChecked {
 
