@@ -2,7 +2,7 @@
 Projeto Martin
 =======
 
-Estrutura com diversos projetos criados para auxilio de automatização de testes
+Estrutura com diversos projetos criados para auxílio de automatização de testes
 
 
 <a href="mailto:peterson.cardoso@me.com">Contato</a>
