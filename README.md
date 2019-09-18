@@ -1,7 +1,8 @@
 
 Projeto Martin
 =======
-Projeto pessoal de realização de uma estrutura com ferramentas de automatização de Testes
+
+Estrutura com diversos projetos criados para auxilio de automatização de testes
 
 
 <a href="mailto:peterson.cardoso@me.com">Contato</a>

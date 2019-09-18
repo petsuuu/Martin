@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="jwt-token-builder">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/java/br/com/peterson/martin/utils/jwt-token-builder.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/src/main/java/br/com/peterson/martin/utils/jwt-token-builder.jar!/" />
+    </SOURCES>
+  </library>
+</component>
