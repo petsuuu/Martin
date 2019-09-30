@@ -2,7 +2,7 @@ package br.com.peterson.martin.pacotesJavaLang.bytebank.banco.modelo;
 
 
 
-public class Cliente {
+public class Cliente extends Object{
 
     private String nome;
     private String cpf;

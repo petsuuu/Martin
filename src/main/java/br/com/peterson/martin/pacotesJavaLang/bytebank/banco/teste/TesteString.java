@@ -5,7 +5,7 @@ public class TesteString {
     public static void main(String[] args) {
 
 
-        String nome = "Teste";//object literal
+        String nome = "TesteObject";//object literal
         // String outro = new String("Teste2");
 
         //Verifica se a String está vazia com boolean

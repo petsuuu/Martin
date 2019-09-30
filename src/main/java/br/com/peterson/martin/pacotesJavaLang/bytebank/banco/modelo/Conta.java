@@ -7,7 +7,7 @@ package br.com.peterson.martin.pacotesJavaLang.bytebank.banco.modelo;
  * @author Peterson Cardoso
  * @version 0.1
  */
-public abstract class Conta {
+public abstract class Conta extends Object {
 
     /**
      * The Saldo.
@@ -145,6 +145,11 @@ public abstract class Conta {
      */
     public static int getTotal(){
         return Conta.total;
+    }
+
+    @Override
+    public String toString() {
+        return "Numero: " +this.numero+ ", Agencia: "+this.agencia;
     }
 
 }
