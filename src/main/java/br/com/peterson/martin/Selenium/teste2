@@ -1,0 +1,17 @@
+    @And("^will be returned with HTTP (\\d+) status and the body$")
+    public void seraRetornadoComStatusHTTPEOBody(final int statusCode, final String expectedBody) throws Throwable {
+
+        validateResponse(statusCode);
+
+        final String normalizeExpectedBody = normalize(expectedBody);
+        final String normalizeResponseBody = normalize(RestApi.getResponseJson());
+
+        Hooks.scenario.write("Expected Body: " + normalizeExpectedBody);
+        Hooks.scenario.write("Actual Body: " + normalizeResponseBody);
+
+        Assert.assertEquals(normalizeExpectedBody, normalizeResponseBody);
+    }
+
+    private String normalize(String body) {
+        return body.replace("\r", "").replace("\n", "").replace("\r\n", "").replace(" ", "");
+    }

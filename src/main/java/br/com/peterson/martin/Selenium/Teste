@@ -1,0 +1,179 @@
+   @Entao("valida bankrupts")
+        public void validaRetornobankrupts() throws IOException {
+            //Valida StatusCode 200
+            Assert.assertEquals(response.getStatusCode(), 200);
+            //get response json
+            String jsonString = response.body().prettyPrint();
+            //get value do campo count
+            Integer count = JsonPath.parse(jsonString).read("$.summary.count");
+            //configuração caso não acha o results
+            Configuration conf1 = Configuration.defaultConfiguration();
+            Configuration conf = conf1.addOptions(Option.DEFAULT_PATH_LEAF_TO_NULL);
+            //get quantidade de arrays no results caso não acha vai atribuir null na String results
+            JSONArray results = (JsonPath.using(conf)).parse(jsonString).read("$.results");
+
+            //compara results com null
+            if (results != null && !results.isEmpty()) {
+                //existindo o campo results vai contar quantos arrays existe com o results.length e atribuindo ao length
+                Integer length = JsonPath.parse(jsonString).read("$.results.length()");
+                Integer revenue = 0;
+                //então começa com 0 a procurar quantos arrays existem
+                for (int i = 0; i < length; i++) {
+                    DocumentContext parse = JsonPath.parse(jsonString);
+                    //E assim lê e atribui para o i a quantidade de arrays encontradas
+                    Integer read = parse.read("$.results[" + i + "].occurenceQuantity", Integer.class);
+                    if (read != null) {
+
+                        revenue++;
+                    }
+                }
+                // e assim se comparar o campo count com o valor contado das arrays
+                Assert.assertEquals(count, revenue);
+
+                @Entao("^confirmar a soma do valor do campo count")
+                public void verificaSomavalorcampo() throws IOException {
+                    ResponseBody body = response.getBody();
+                    String jsonString = response.body().prettyPrint();
+                    Integer count = JsonPath.parse(jsonString).read("$.summary.count");
+
+                    int length = JsonPath.parse(jsonString).read("$.length()");
+                    Integer revenue = 0;
+                    for (int i = 0; i < length; i++) {
+                        DocumentContext parse = JsonPath.parse(jsonString);
+                        Integer read = parse.read("$.results[" + i + "].checkCount", Integer.class);
+                        revenue += read;
+
+                        //        if (read != null && !read.isEmpty()) {
+                        //            revenue++;
+                        //        }
+                    }
+
+                    Assert.assertEquals(count, revenue);
+                }
+
+
+
+
+@Quando("^criar as variaveis\"$")
+    public void saveRandomString() throws Throwable {
+
+
+        String numero;
+        String cpf;
+        String cnpj;
+        String phone;
+        String pokemon;
+        String got;
+        String oneNumber;
+        String email;
+        String twoNumber;
+
+
+        numero = generateRandomString();
+        cpf = new Geradores().cpf(false);
+        cnpj = new Geradores().cnpj(false);
+        phone = "9" + StringUtils.leftPad(generateRandomNumber(), 8, '0').substring(0, 8);
+        pokemon = new Faker().pokemon().name();
+        got = new Faker().gameOfThrones().character();
+        oneNumber = new Faker().number().digits(1);
+        email = new Faker().internet().emailAddress();
+        twoNumber = new Faker().number().digits(2);
+
+
+        ApiValueSteps.saveVariable("numero", numero);
+        Hooks.scenario.write(ApiValueSteps.getUserParameters().get("${" + numero + "}"));
+        ApiValueSteps.saveVariable("cpf", cpf);
+        Hooks.scenario.write(ApiValueSteps.getUserParameters().get("${" + cpf + "}"));
+        ApiValueSteps.saveVariable("cnpj", cnpj);
+        Hooks.scenario.write(ApiValueSteps.getUserParameters().get("${" + cnpj + "}"));
+        ApiValueSteps.saveVariable("phone", phone);
+        Hooks.scenario.write(ApiValueSteps.getUserParameters().get("${" + phone + "}"));
+        ApiValueSteps.saveVariable("pokemon", pokemon);
+        Hooks.scenario.write(ApiValueSteps.getUserParameters().get("${" + pokemon + "}"));
+        ApiValueSteps.saveVariable("got", got);
+        Hooks.scenario.write(ApiValueSteps.getUserParameters().get("${" + got + "}"));
+        ApiValueSteps.saveVariable("oneNumber", oneNumber);
+        Hooks.scenario.write(ApiValueSteps.getUserParameters().get("${" + oneNumber + "}"));
+        ApiValueSteps.saveVariable("email", email);
+        Hooks.scenario.write(ApiValueSteps.getUserParameters().get("${" + email + "}"));
+        ApiValueSteps.saveVariable("twoNumber", twoNumber);
+        Hooks.scenario.write(ApiValueSteps.getUserParameters().get("${" + twoNumber + "}"));
+
+
+    }
+
+    @Entao("^salvar a da resposta do json \"([^\"]*)\" com a string \"([^\"]*)\"$")
+    public void saveJsonValue(String jsonKey, String userKey) throws Throwable {
+
+        idResponse = response.body().jsonPath().get(jsonKey).toString();
+
+    }
+   /*     JsonPath jsonPathEvaluator = response.jsonPath();
+        String id = jsonPathEvaluator.get("id");
+        ApiValueSteps.saveVariable(userKey, id);
+        Hooks.scenario.write(ApiValueSteps.getUserParameters().get("${" + userKey + "}"));
+
+
+*/
+
+    @Entao("^sera retornado com status HTTP (\\d+) e o body$")
+    public void seraRetornadoComStatusHTTPEOBody(int statusCode, String body) {
+        Assert.assertEquals(response.getStatusCode(), statusCode);
+        Assert.assertTrue(body.replace("\r\n", "").replace(" ", "").contains(response.prettyPrint().replace("\n", "").replace(" ", "")));
+        appendToReport("Status code: " + statusCode + "\nBody: " + response.prettyPrint());
+    }
+
+    @Entao("^sera retornado com status HTTP (\\d+)$")
+    public void seraRetornadoComStatusHTTP(int statusCode) {
+        Assert.assertEquals(response.getStatusCode(), statusCode);
+    }
+
+
+//    @Entao("^sera retornado com Body$")
+//    public void seraRetornadoComBody() {
+//        Assert.assertEquals(response.getBody(),equalTo("faultstring"));
+//
+//    }
+
+    @Entao("^resposta do Json contem no body$")
+    public void seraRetornadoComStatusHTTPEOBodyEspe(String body) {
+        String ignore;
+
+        Assert.assertTrue(body.replace("\r\n", "").replace(" ", "").contains(response.prettyPrint().replace("\n", "").replace(" ", "").replace("string", "")));
+
+        Assert.assertTrue(body.contains("balance"), ("summary"));
+        Assert.assertTrue(body.contains("summary"));
+        Assert.assertTrue(body.contains("count"));
+
+    }
+
+    @Entao("^resposta do Json contem no JSonPath")
+    public void seraRetornadoComJSHONPath() throws IOException {
+        BasePage page = new BasePage();
+        page.setCompareJson();
+
+
+        String jsonString = response.body().prettyPrint();
+
+        Summary summary = new ObjectMapper().reader(Summary.class)
+                .withRootName("summary")
+                .readValue(jsonString);
+        Assert.assertTrue(summary != null);
+
+    }
+
+    @Entao("^confirmar o campo \"([^\"]*)\" com o valor (\\d+)")
+    public void verificaValorCampoJson(String campo, int valor) throws IOException {
+        String jsonString = response.body().prettyPrint();
+        int response = JsonPath.parse(jsonString).read("$.summary." + campo + "");
+        Assert.assertEquals(response, valor);
+
+
+    }
+
+    @Entao("teste")
+    public void teste(String campo, int valor) throws IOException {
+        String jsonString = response.body().prettyPrint();
+        int response = JsonPath.parse(jsonString).read("$.summary.occurenceQuantity ");
+        Assert.assertEquals(response, 0);
+
